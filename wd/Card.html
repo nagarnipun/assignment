@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debit Card Payment Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Debit Card Payment Form</h2>
+
+<form id="paymentForm">
+  <label for="cardNumber">Card Number:</label>
+  <input type="text" id="cardNumber" placeholder="Enter card number" required>
+
+  <label for="expiryDate">Expiry Date:</label>
+  <input type="text" id="expiryDate" placeholder="MM/YY" required>
+
+  <label for="cvv">CVV:</label>
+  <input type="text" id="cvv" placeholder="Enter CVV" required>
+
+  <button type="button" onclick="processPayment()">Make Payment</button>
+</form>
+
+<script>
+  function processPayment() {
+    // This is a placeholder function for educational purposes.
+    // In a real-world scenario, you should not handle payment processing on the client side.
+    // Instead, use a secure server-side implementation with a payment gateway.
+
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const cvv = document.getElementById('cvv').value;
+
+    // Perform basic validation (you should perform more thorough validation in a real application)
+    if (cardNumber && expiryDate && cvv) {
+      alert('Payment Successful!\nCard Number: ' + cardNumber);
+      // In a real application, you would send the payment details to your server for processing.
+      // Never handle sensitive information like card details on the client side.
+    } else {
+      alert('Please fill in all required fields.');
+    }
+  }
+</script>
+
+</body>
+</html>

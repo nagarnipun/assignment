@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Slider</title>
+  <style>
+    .slider-container {
+      width: 300px;
+      overflow: hidden;
+      margin: 20px ;
+    }
+
+    .slider-content {
+      display: flex;
+      transition: transform 0.5s ;
+    }
+
+    .slide {
+      width: 300px;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <div class="slider-content">
+      <div class="slide">Slide 1</div>
+      <div class="slide">Slide 2</div>
+      <div class="slide">Slide 3</div>
+    </div>
+  </div>
+
+  <button id="prevBtn">Previous</button>
+  <button id="nextBtn">Next</button>
+
+<script>
+  const sliderContent = document.querySelector('.slider-content');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  function updateSlider() {
+    const newPosition = -currentIndex * 300; // Adjust based on slide width
+    sliderContent.style.transform = `translateX(${newPosition}px)`;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider-container {
+          width: 300px;
+          overflow: hidden;
+          margin: 20px ;
+        }
+    
+        .slider-content {
+          display: flex;
+          transition: transform 0.5s ;
+        }
+    
+        .slide {
+          width: 300px;
+          flex: 0 0 auto;
+          box-sizing: border-box;
+          padding: 10px;
+          text-align: center;
+          border: 1px solid #ccc;
+        }
+    
+        
+      </style>
+    </head>
+</head>
+<body>
+    
+    
+<div class="slider-container">
+    <div class="slider-content" >
+      <div class="slide" id="slides" style="background-color: blue;color: white;">Slide 1</div>
+      <div class="slide" id="slides" style="background-color:brown;color: white;">Slide 2</div>
+      <div class="slide" id="slides" style="background-color:darkorange;color: white;">Slide 3</div>
+    </div>
+  </div>
+  
+  <button onclick="prevBtn()">Previous</button>
+  <button onclick="nextBtn()">Next</button>
+  
+  <script>
+
+
+        function prevBtn()
+        {
+            var slides=document.getElementById('slides').innerHTML;
+            slides--;
+            document.getElementById('slides').innerHTML=slide;
+        }
+        
+        function nextBtn()
+        {
+            var slides=document.getElementById('slides').innerHTML;
+            slides++;
+            document.getElementById('slides').innerHTML=slide;
+        }
+
+  </script>
+</body>
+</html>

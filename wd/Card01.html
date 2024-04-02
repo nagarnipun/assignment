@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Payment</title>
+  <style>
+    #cardImage {
+      width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Credit Card Payment</h2>
+
+<form id="paymentForm">
+  <label for="cardNumber">Credit Card Number:</label>
+  <input type="text" id="cardNumber" placeholder="Enter card number" oninput="updateCardImage()" required>
+
+  <label for="cardName">Cardholder Name:</label>
+  <input type="text" id="cardName" placeholder="Enter cardholder name" required>
+
+  <label for="expiryDate">Expiry Date:</label>
+  <input type="text" id="expiryDate" placeholder="MM/YY" required>
+
+  <label for="cvv">CVV:</label>
+  <input type="text" id="cvv" placeholder="Enter CVV" required>
+
+  <button type="button" onclick="processPayment()">Make Payment</button>
+</form>
+
+<div>
+  <img id="cardImage" src="images/bob.png" alt="Card Image">
+</div>
+
+<script>
+  function updateCardImage() {
+    var cardNumber = document.getElementById('cardNumber').value;
+    var cardImagePath = getCardImagePath(cardNumber);
+    document.getElementById('cardImage').src = cardImagePath;
+  }
+
+  function getCardImagePath(cardNumber) {
+    if (/^4/.test(cardNumber)) {
+      return 'images/punjab.png';
+    } 
+    else if (/^5[1-5]/.test(cardNumber)) {
+      return 'images/icic.png';
+    } 
+    else {
+      return 'images/bob.png';
+    }
+  }
+
+  function processPayment() {
+
+    var resultMessage = 'Payment successful!';
+    alert(resultMessage);
+  }
+</script>
+
+</body>
+</html>
